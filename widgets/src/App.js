@@ -3,6 +3,8 @@ import Accordion from "./components/Accordion";
 import Search from "./components/Search";
 import Dropdown from "./components/Dropdown";
 import Translate from "./components/Translate";
+import Route from "./components/Route";
+import Header from "./components/Header";
 
 const items = [
     {
@@ -35,29 +37,39 @@ const options = [
 ];
 
 export default () => {
-    // const [selected, setSelected] = useState(options[0]); // Color dropdown.
-    // const [showDropdown, setShowDropdown] = useState(true); // Color dropdown.
+    const [selected, setSelected] = useState(options[0]);
+    const [showDropdown, setShowDropdown] = useState(true);
 
     return (
         <div>
-            <Translate />
+            <Header />
+            <Route path='/'>
+                <div>Choose a widget</div>
+            </Route>
+            <Route path='/accordion'>
+                <Accordion items={items} />
+            </Route>
+            <Route path='/list'>
+                <Search />
+            </Route>
+            <Route path='/dropdown'>
+                <button onClick={() => setShowDropdown(!showDropdown)}>Toggle Dropdown</button>
+                {showDropdown ?
+                    <div>
+                        <Dropdown
+                            label="Select a Color"
+                            selected={selected}
+                            onSelectedChange={setSelected}
+                            options={options}
+                        />
+                        <div style={{color: selected.value}}>This text is {selected.value}</div>
+                    </div>
+                    : null
+                }
+            </Route>
+            <Route path='/translate'>
+                <Translate />
+            </Route>
         </div>
     );
-    // <Search />
-
-    // <Accordion items={items} />
-
-    // <button onClick={() => setShowDropdown(!showDropdown)}>Toggle Dropdown</button>
-    // {showDropdown ?
-    //     <div>
-    //         <Dropdown
-    //             label="Select a Color"
-    //             selected={selected}
-    //             onSelectedChange={setSelected}
-    //             options={options}
-    //         />
-    //         <div style={{color: selected.value}}>This text is {selected.value}</div>
-    //     </div>
-    //     : null
-    // }
 };
