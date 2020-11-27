@@ -1,0 +1,33 @@
+{
+  "streams": [
+    {
+      "title": "My stream",
+      "description": "This is an aweomse stream!",
+      "id": 1
+    },
+    {
+      "title": "This is my stream",
+      "description": "This was made by me!",
+      "userId": null,
+      "id": 2
+    },
+    {
+      "title": "This is another stream",
+      "description": "This is made by me!",
+      "userId": "115094061688254675725",
+      "id": 3
+    },
+    {
+      "title": "Unexpected behaviour",
+      "description": "Did not expect that!",
+      "userId": "115094061688254675725",
+      "id": 4
+    },
+    {
+      "title": "Programmatic navigation",
+      "description": "You should not see this on the form page!!",
+      "userId": "115094061688254675725",
+      "id": 5
+    }
+  ]
+}
